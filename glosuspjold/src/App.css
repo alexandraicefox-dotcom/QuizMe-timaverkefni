@@ -1,0 +1,155 @@
+/* Litir síðunnar */
+:root {
+  color-scheme: dark;
+  --background: #10121a;
+  --surface: #191d29;
+  --text: #ddd0e4;
+  --muted: #9b6fdc;
+  --border: #637397;
+  --accent: #eb6de7;
+  --purple: #bfadff;
+  --known: #83dda4;
+  --unknown: #ffa0ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Bakgrunnur, letur og breidd síðunnar */
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 5vw, 3.5rem) 1rem;
+}
+
+h1 {
+  margin: 0 0 1.25rem;
+  color: var(--accent);
+  font-size: clamp(4rem, 8vw, 4rem);
+  line-height: 2;
+  text-align:center;
+  text-shadow: 1px 1px 2px #cab7e4;
+
+}
+
+.muted,
+.side {
+  color: var(--muted);
+}
+
+/* Byrjunarskjár, spjald og niðurstöður */
+.start,
+.card,
+.summary {
+  padding: clamp(2rem, 4vw, 1.75rem);
+  border: 2px solid var(--border);
+  border-radius: rem;
+  background: var(--surface);
+  box-shadow: 0 0 5px #f401ec;
+}
+
+.card {
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+}
+
+/* Ramminn skiptir um lit þegar spjaldinu er svarað */
+.card.known {
+  border-color: var(--known);
+}
+
+.card.unknown {
+  border-color: var(--unknown);
+}
+
+.side {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.text {
+  margin: 0.5rem 0 1.25rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 600;
+}
+
+.summary h2 {
+  margin-top: 0;
+}
+
+.summary ul {
+  padding-inline-start: 1.25rem;
+}
+
+/* Takkar með dökkum fleti og björtum áherslulit */
+button {
+  --button-color: var(--accent);
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--button-color);
+  border-radius: 0.65rem;
+  background: #222939;
+  color: var(--button-color);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 0 4px #ecf901;
+}
+
+button:hover:not(:disabled) {
+
+  background: #2c3549;
+  box-shadow: 0 0 4px #ec01f9;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+}
+
+.flip {
+  --button-color: var(--purple);
+}
+
+.known-btn {
+  --button-color: var(--known);
+}
+
+.unknown-btn {
+  --button-color: var(--unknown);
+}
+
+/* Óvirkir takkar */
+button:disabled {
+  border-color: #515a6e;
+  background: #191d27;
+  color: #a1aabd;
+  cursor: default;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Stafla tökkunum  */
+@media (max-width: 420px) {
+  .answer-buttons {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
